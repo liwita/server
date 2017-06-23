@@ -1,0 +1,37 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "editor.mouseWheelZoom": true,
+    "editor.folding": false,
+    "editor.minimap.maxColumn": 140,
+    "editor.wordWrap": "off",
+    "editor.quickSuggestions": false,
+    "editor.tabCompletion": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": true,
+    "editor.quickSuggestionsDelay": 4,
+    "editor.formatOnSave": true,
+    "tslint.enable": true,
+    "tslint.jsEnable": false,
+    "tslint.autoFixOnSave": true,
+    "tslint.run": "onType",
+    "eslint.enable": false,
+    "eslint.autoFixOnSave": false,
+    "eslint.run": "onSave",
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.validate.enable": true,
+    "typescript.format.enable": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "dist/**/*.js": false,
+        "dist/**/*.map": false
+    },
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 2,
+    "prettier.singleQuote": true,
+    "prettier.useTabs": false,
+    "files.eol": "\n"
+}

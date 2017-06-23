@@ -1,0 +1,41 @@
+{
+  "name": "liwita",
+  "version": "0.1.0",
+  "description": "This is the *`liwita`* Server which is supposed to do all the `links with tags` magic.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/liwita/server.git",
+  "bugs": {
+    "email": "impmja@gmx.de",
+    "url": "https://github.com/liwita/server/issues"
+  },
+  "author": {
+    "name": "Jan (impmja) Schulte",
+    "email": "impmja@gmx.de",
+    "url": "liwita.net"
+  },
+  "license": "MIT",
+  "readme": "README.md",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "keywords": [
+    "typescript",
+    "webpack",
+    "express",
+    "MariaDB"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "build:dev": "webpack --progress --colors --profile --env development",
+    "build:prod": "webpack --progress --colors --profile --env production",
+    "rebuild:dev": "yarn run clean && yarn run build:dev",
+    "rebuild:prod": "yarn run clean && yarn run build:prod",
+    "serve": "nodemon",
+    "start": "node ./dist/main.js",
+    "lint": "tslint ./src/**/*.ts",
+    "test": "mocha --watch",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha",
+    "coper:open": "opener ./coverage/lcov-report/*.html",
+    "check:ports": "netstat -a -o"
+  }
+}

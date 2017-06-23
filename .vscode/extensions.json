@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "EditorConfig.editorconfig",
+    "waderyan.nodejs-extension-pack",
+    "donjayamanne.git-extension-pack",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "christian-kohler.path-intellisense",
+    "eg2.tslint",
+    "esbenp.prettier-vscode",
+    "gamunu.vscode-yarn",
+    "robertohuertasm.vscode-icons",
+    "joelday.docthis",
+    "alefragnani.project-manager",
+    "richie5um2.vscode-sort-json"
+  ]
+}
