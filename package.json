@@ -26,8 +26,8 @@
   ],
   "scripts": {
     "clean": "rimraf dist/*",
-    "build:dev": "yarn run clean && webpack --progress --colors --profile --bail --env development --config ./config/webpack.config.js",
-    "build:prod": "yarn run clean && webpack --progress --colors --profile --bail --env production --config ./config/webpack.config.js",
+    "build:dev": "webpack --progress --colors --profile --bail --env development --config ./config/webpack.config.js",
+    "build:prod": "webpack --progress --colors --profile --bail --env production --config ./config/webpack.config.js",
     "serve": "nodemon",
     "start": "node ./dist/index.js",
     "lint": "tslint ./src/**/*.ts",
@@ -37,6 +37,8 @@
     "check:ports": "netstat -a -o"
   },
   "devDependencies": {
+    "@types/express": "^4.0.36",
+    "@types/lodash": "^4.14.66",
     "@types/node": "^8.0.2",
     "duplicate-package-checker-webpack-plugin": "^1.2.4",
     "eslint": "^4.0.0",
@@ -51,5 +53,8 @@
     "webpack-merge": "^4.1.0",
     "webpack-node-externals": "^1.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.15.3",
+    "lodash": "^4.17.4"
+  }
 }

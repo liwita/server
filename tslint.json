@@ -127,7 +127,7 @@
     "no-default-export": true,
     "no-duplicate-super": true,
     "no-duplicate-variable": true,
-    "no-empty": true,
+    "no-empty": false,
     "no-eval": true,
     "no-floating-promises": true,
     "no-internal-module": true,

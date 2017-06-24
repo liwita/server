@@ -1,5 +1,13 @@
-if (process.env.NODE_ENV === 'production') {
-  console.log('Prod: Hello World!');
-} else {
-  console.log('Dev: Hello World!');
-}
+import { App } from './app';
+
+const main = (): void => {
+  try {
+    const app = new App();
+    app.run();
+  } catch (_error) {
+    console.error('FATAL ERROR', _error);
+    process.exitCode = 1;
+  }
+};
+
+main();
