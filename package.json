@@ -26,16 +26,30 @@
   ],
   "scripts": {
     "clean": "rimraf dist/*",
-    "build:dev": "webpack --progress --colors --profile --env development",
-    "build:prod": "webpack --progress --colors --profile --env production",
-    "rebuild:dev": "yarn run clean && yarn run build:dev",
-    "rebuild:prod": "yarn run clean && yarn run build:prod",
+    "build:dev": "yarn run clean && webpack --progress --colors --profile --bail --env development --config ./config/webpack.config.js",
+    "build:prod": "yarn run clean && webpack --progress --colors --profile --bail --env production --config ./config/webpack.config.js",
     "serve": "nodemon",
-    "start": "node ./dist/main.js",
+    "start": "node ./dist/index.js",
     "lint": "tslint ./src/**/*.ts",
     "test": "mocha --watch",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "coper:open": "opener ./coverage/lcov-report/*.html",
     "check:ports": "netstat -a -o"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.2",
+    "duplicate-package-checker-webpack-plugin": "^1.2.4",
+    "eslint": "^4.0.0",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1",
+    "ts-loader": "^2.2.0",
+    "tslint": "^5.4.3",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.3.4",
+    "webpack": "^3.0.0",
+    "webpack-merge": "^4.1.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {}
 }

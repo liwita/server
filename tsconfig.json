@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+    "mapRoot": "dist",
+    "sourceRoot": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+    "pretty": true
+  },
+  "typeRoots": [
+    "node_modules/@types",
+    "types"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

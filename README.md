@@ -8,14 +8,14 @@ This is also very much work in progress and is supposed to be a learning experie
 
 ## TODO ##
 
-See TODO.md for details.
+See __TODO.md__ for details.
 
 ## Built With ##
 
 * TypeScript
 * NodeJs
 * ExpressJs
-* MySQL / MariaDB / Postgres.. not sure yet.
+* MariaDB
 * Knex
 * :heart:
 
@@ -29,4 +29,4 @@ Might be a thing in the future. Not right now tho.
 
 ## License ##
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the __LICENSE__ file for details
