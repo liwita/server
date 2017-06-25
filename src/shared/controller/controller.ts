@@ -1,9 +1,7 @@
-import * as assert from 'assert';
-
 import * as _ from 'lodash';
 import * as express from 'express';
 
-import { Network } from './../utils';
+import { Network, Assert } from './../utils';
 import { Server } from './../server';
 
 export abstract class Controller {
@@ -33,7 +31,7 @@ export abstract class Controller {
     _path: string,
     _options: (express.RouterOptions | null)
   ) {
-    assert.ok(_.isObject(_server), 'Controller: Server not assigned');
+    Assert.check(_.isObject(_server), 'Controller: Server not assigned');
 
     this._name = _.snakeCase(this.constructor.name);
 
@@ -49,7 +47,7 @@ export abstract class Controller {
   }
 
   public mount(_parent?: Controller): Controller {
-    assert.ok(!this.parent, 'Controller: Already mounted to a parent controller');
+    Assert.check(!this.parent, 'Controller: Already mounted to a parent controller');
 
     this._parent = _parent || null;
     this.onBeforeMount(this._parent);

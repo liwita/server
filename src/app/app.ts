@@ -2,7 +2,7 @@ import * as http from 'http';
 
 import * as express from 'express';
 
-import { Assert, Environment, Network } from './../shared/utils';
+import { Assert, Configuration, Network } from './../shared/utils';
 import { Server } from './../shared/server';
 import { Service } from './../shared/service';
 import { Controller } from './../shared/controller';
@@ -19,8 +19,8 @@ export class App extends Server {
 
   private _httpServer: http.Server;
   private _expressApp: express.Application;
-  private _services: { [_name: string]: Service };
-  private _controller: { [_name: string]: Controller };
+  private _services: { [_name: string]: Service } = {};
+  private _controller: { [_name: string]: Controller } = {};
 
   public get protocol(): string {
     return App.PROTOCOL;
@@ -59,7 +59,7 @@ export class App extends Server {
     return Assert.fail(`App: Service '${_name}' does not exist`);
   }
   public getController<T extends Controller>(_name: string): T {
-    if (_name in this._services) {
+    if (_name in this._controller) {
       return this._controller[_name] as T;
     }
     return Assert.fail(`App: Controller '${_name}' does not exist`);
@@ -83,8 +83,8 @@ export class App extends Server {
   }
 
   private initializeServer(): void {
-    this._port = Network.normalizePort(Environment.get('SERVER_PORT'));
-    this._address = Network.normalizeAddress(Environment.get('SERVER_ADDRESS'));
+    this._port = Configuration.get<number>('server.port');
+    this._address = Network.normalizeAddress(Configuration.get<string>('server.address'));
     this._fullAddress = Network.generateFullAddress(this.protocol, this._address, this._port);
 
     this._expressApp = express();

@@ -25,8 +25,8 @@ export class Network {
   }
 
   public static concatPath(_pathA: string, _pathB: string): string {
-    Assert.check(_.isString(_pathA), 'Path A is missing');
-    Assert.check(_.isString(_pathB), 'Path A is missing');
+    Assert.check(_.isString(_pathA), 'Path a is missing');
+    Assert.check(_.isString(_pathB), 'Path b is missing');
     return `${Network.postfixPath(_pathA)}/${Network.prefixPath(_pathB)}`;
   }
 

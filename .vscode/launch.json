@@ -11,7 +11,10 @@
       "program": "${workspaceRoot}\\dist\\index.js",
       "outFiles": [
         "${workspaceRoot}/dist/**/*.js"
-      ]
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
     },
     {
       "type": "node",
@@ -40,8 +43,7 @@
       "sourceMaps": true,
       "smartStep": false,
       "trace": true,
-      "restart": true,
-      "envFile": "${workspaceRoot}/config/.env"
+      "restart": true
     }
   ]
 }
