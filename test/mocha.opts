@@ -1,0 +1,12 @@
+--compilers ts:ts-node/register
+--require source-map-support/register
+--require ./test/environment.bootstrap.ts
+--colors
+--timeout 1000
+--check-leaks
+--inspect
+--reporter spec
+--recursive
+--sort
+--bail
+./test/**/*.test.ts

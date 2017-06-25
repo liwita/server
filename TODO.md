@@ -2,7 +2,7 @@
 
 - [x] Setup Project Structure
 - [x] Setup Development Enviroment
-- [ ] Setup Test Enviroment
+- [X] Setup Test & Coverage Enviroment
 - [X] Implement basic Server with ExpressJs
 - [ ] Design & Create MariaDB SQL Database Schema & Set it up using `knex`
 - [ ] Add and implement a simple GraphQL API
