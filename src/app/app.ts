@@ -84,8 +84,8 @@ export class App extends Server {
 
   private initializeServer(): void {
     this._port = Configuration.get<number>('server.port');
-    this._address = Network.normalizeAddress(Configuration.get<string>('server.address'));
-    this._fullAddress = Network.generateFullAddress(this.protocol, this._address, this._port);
+    this._address = Configuration.get<string>('server.address');
+    this._fullAddress = Network.buildFullAddress(this.protocol, this._address, this._port);
 
     this._expressApp = express();
     /**
@@ -102,7 +102,7 @@ export class App extends Server {
     const appController = this.addController(new AppController(this)).mount();
 
     this._path = appController.path;
-    this._fullPath = Network.concatPath(this._fullAddress, this._path);
+    this._fullPath = Network.concatPaths([this._fullAddress, this._path]);
   }
 
   private onHttpError(_error: NodeJS.ErrnoException): void {
