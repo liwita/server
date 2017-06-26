@@ -15,9 +15,18 @@ export class CustomError extends Error {
 
   public constructor(private _status: number, _message: string, private _inner: any = null) {
     super(_message);
-    /**
-     * TODO: Remove the 'Error' part..
-     */
     this._name = _.snakeCase(this.constructor.name);
+  }
+
+  public toJSON(_withInner: boolean = false): object {
+    if (_withInner && this.inner) {
+      return { status: 'error', code: this.name, message: this.message, inner: this.inner };
+    } else {
+      return { status: 'error', code: this.name, message: this.message };
+    }
+  }
+
+  public toString(): string {
+    return `${this.constructor.name}: ${this.message}`;
   }
 }

@@ -1,6 +1,6 @@
 import * as express from 'express';
 
-import { CustomError } from './../shared/error';
+import { CustomError, UnauthorizedError } from './../shared/error';
 import { Environment } from './../shared/utils';
 import { Server } from './../shared/server';
 import { Controller } from './../shared/controller';
@@ -38,10 +38,7 @@ export class AppController extends Controller {
   private mountDefaultRoute(): void {
     this.server.expressApp.use(
       (_request: express.Request, _response: express.Response, _next: express.NextFunction) => {
-        /**
-         * TODO(jsh): Later on throw a 401 unauthorized...
-         */
-        _next(new CustomError(500, `Ooops, something went wrong!`));
+        _next(new UnauthorizedError(`You are not authorized`));
       }
     );
   }
@@ -62,8 +59,11 @@ export class AppController extends Controller {
           _response
             .status(error.status)
             .type('application/json')
-            .json({ status: 'error', code: error.name, message: error.message });
+            .json(error.toJSON(!Environment.IS_PRODUCTION_MODE));
         } else {
+          /**
+           * TODO(jsh): This is bad! We need to restart the server.
+           */
           _response.sendStatus(500);
         }
       }
