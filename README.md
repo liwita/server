@@ -15,8 +15,9 @@ See __TODO.md__ for details.
 * TypeScript
 * NodeJs
 * ExpressJs
-* MariaDB
 * Knex
+* Postgres
+* TODO: GraphQL
 * :heart:
 
 ## Contributing ##
