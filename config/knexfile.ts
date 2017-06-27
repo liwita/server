@@ -1,4 +1,20 @@
-module.exports = {
+import * as Knex from 'knex';
+
+interface KnexConfig extends Knex.Config {
+  seeds?: {
+    directory?: string;
+  };
+}
+
+interface KnexConfigurations {
+  test: KnexConfig;
+  development: KnexConfig;
+  production: KnexConfig;
+
+  [key: string]: KnexConfig;
+}
+
+const config: KnexConfigurations = {
   test: {
     client: 'postgresql',
     connection: {
@@ -64,3 +80,5 @@ module.exports = {
     }
   }
 };
+
+export = config;

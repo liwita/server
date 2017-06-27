@@ -7,9 +7,6 @@ export abstract class Service {
   }
 
   public constructor() {
-    /**
-     * TODO: Remove the 'Error' part..
-     */
     this._name = _.snakeCase(this.constructor.name);
   }
 }
