@@ -34,6 +34,8 @@
     "db:rollback:test": "knex migrate:rollback --knexfile ./config/knexfile.ts --env test",
     "db:rollback:dev": "knex migrate:rollback --knexfile ./config/knexfile.ts --env development",
     "db:rollback:prod": "knex migrate:rollback --knexfile ./config/knexfile.ts --env production",
+    "db:seed:test": "knex seed:run --knexfile ./config/knexfile.ts --env test",
+    "db:seed:dev": "knex seed:run --knexfile ./config/knexfile.ts --env development",
     "serve": "nodemon",
     "start": "node ./dist/index.js",
     "lint": "tslint ./src/**/*.ts",
