@@ -19,8 +19,19 @@ export class UsersService extends Service {
       /**
        * TODO: Validate?
        */
-      const columns = _.keys(_user);
-      const result = await Knex('users').insert(_user).returning(columns);
+      // const columns = _.keys(_user);
+      const result = await Knex('users').insert(_user).returning('*');
+      return new UserModel(result);
+    } catch (_error) {
+      throw new ClientError(500, `Failed to add user: ${_user}`, _error);
+    }
+  }
+
+  public async update(_user: UserModel): Promise<UserModel> {
+    Assert.check(_.isObject(_user), 'User is not assigned');
+    Assert.check(_.isNumber(_user.id) && _user.id > 0, 'User id is invalid');
+    try {
+      const result = await Knex('users').update(_user).where('id', _user.id).returning('*');
       return new UserModel(result);
     } catch (_error) {
       throw new ClientError(500, `Failed to add user: ${_user}`, _error);
@@ -28,6 +39,7 @@ export class UsersService extends Service {
   }
 
   public async getById(_userId: number): Promise<UserModel> {
+    Assert.check(_.isNumber(_userId) && _userId > 0, 'User id is invalid');
     try {
       const result = await Knex('users').where('id', _userId);
       if (result && result.length) {
